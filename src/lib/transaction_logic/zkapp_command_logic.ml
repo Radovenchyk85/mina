@@ -289,6 +289,14 @@ module Local_state = struct
     end]
   end
 
+  module Test = struct
+    type t1 = Mina_wire_types.Mina_transaction_logic.Zkapp_command_logic.Local_state.Test.t1
+      = { a : Value.Stable.V1.t }
+
+    type t2 = Mina_wire_types.Mina_transaction_logic.Zkapp_command_logic.Local_state.Test.t2
+      = { a : Value.Stable.V2.t }
+  end
+
   module Checked = struct
     open Pickles.Impls.Step
 

@@ -384,6 +384,18 @@ module Make_str (A : Wire_types.Concrete) = struct
       end
     end]
 
+    (*
+    module Test = struct
+      type t3b
+          = Mina_wire_types.Mina_state_snarked_ledger_state.With_sok.Test.t3a
+          = { a : Stable.V3.t }
+
+      type t2b
+          = Mina_wire_types.Mina_state_snarked_ledger_state.With_sok.Test.t2a
+        = { a : Stable.V2.t }
+    end
+    *)
+
     type display =
       (string, string, string, string, string, Local_state.display) Poly.t
 

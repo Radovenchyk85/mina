@@ -25,6 +25,22 @@ module Prod : Ledger_proof_intf.S
     end
   end]
 
+  (* temp test *)
+  module Test = struct
+    type test2
+        = Mina_wire_types.Ledger_proof.Test.test2
+        = { a :Stable.V2.t }
+
+    type test3
+        = Mina_wire_types.Ledger_proof.Test.test3
+        = { a : Stable.V3.t }
+  end
+
+  module Test2 = struct
+    type t = {a:Mina_wire_types.Mina_state.Snarked_ledger_state.With_sok.V2.t}
+    type t2 = t = { a : Stable.V2.t}
+  end
+
   let statement (t : t) = Transaction_snark.statement t
 
   let statement_with_sok (t : t) = Transaction_snark.statement_with_sok t

@@ -3,7 +3,6 @@ open Utils
 module Types = struct
   module type S = sig
     module V3 : S0
-
     module V2 : S0
   end
 end
@@ -50,6 +49,7 @@ module M = struct
       , Proof.V2.t )
       Proof_carrying_data.V1.t
   end
+
 end
 
 module type Local_sig = Signature(Types).S

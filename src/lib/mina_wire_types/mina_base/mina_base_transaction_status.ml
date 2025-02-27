@@ -110,13 +110,15 @@ module Failure = struct
       | Cancelled
   end
 
+  module TestV2 = V2
+
   module Collection = struct
     module V2 = struct
       type t = V3.t list list
     end
 
     module V1 = struct
-      type t = V2.t list list
+      type t = TestV2.t list list
     end
   end
 end

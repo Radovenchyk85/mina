@@ -83,6 +83,24 @@ module Make_str (A : Wire_types.Concrete) = struct
         Proof_carrying_data.Stable.V1.t
       [@@deriving compare, equal, sexp, version, yojson, hash]
 
+
+      module Test1 = struct
+        type t3 = {a:Mina_wire_types.Mina_state.Snarked_ledger_state.With_sok.V3.t}
+        type t3a = t3 = {a: Mina_state.Snarked_ledger_state.With_sok.Stable.V3.t}
+
+        type t2 = {a:Mina_wire_types.Mina_state.Snarked_ledger_state.With_sok.V2.t}
+        type t2a = t2 = {a: Mina_state.Snarked_ledger_state.With_sok.Stable.V2.t}
+      end
+
+      module Test2 = struct
+        type t3 = {a:t}
+        type t3a = t3 = {a:
+            ( Mina_state.Snarked_ledger_state.With_sok.Stable.V3.t
+            , Proof.Stable.V2.t )
+            Proof_carrying_data.Stable.V1.t
+          }
+      end
+
       let to_latest = Fn.id
     end
 
@@ -92,6 +110,15 @@ module Make_str (A : Wire_types.Concrete) = struct
         , Proof.Stable.V2.t )
         Proof_carrying_data.Stable.V1.t
       [@@deriving compare, equal, sexp, version, yojson, hash]
+
+      module Test2 = struct
+        type t3 = {a:t}
+        type t3a = t3 = {a:
+            ( Mina_state.Snarked_ledger_state.With_sok.Stable.V2.t
+            , Proof.Stable.V2.t )
+            Proof_carrying_data.Stable.V1.t
+          }
+      end
 
       let to_latest = Fn.id
     end

@@ -50,4 +50,9 @@ module Local_state = struct
         V1.t
     end
   end
+
+  module Test = struct
+    type t1 = { a : Value.V1.t }
+    type t2 = { a : Value.V2.t }
+  end
 end

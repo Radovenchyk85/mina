@@ -117,9 +117,12 @@ module Failure = struct
         | Cancelled
       [@@deriving sexp, yojson, equal, compare, variants, hash]
 
+      (* TODO write a giant case statement for this *)
       let to_latest = Fn.id
     end
   end]
+
+  module Test = Stable
 
   module Collection = struct
     module Display = struct
@@ -137,14 +140,14 @@ module Failure = struct
     [%%versioned
     module Stable = struct
       module V2 = struct
-        type t = Stable.V3.t list list
+        type t = Test.V3.t list list
         [@@deriving equal, compare, yojson, sexp, hash]
 
         let to_latest = Fn.id
       end
 
       module V1 = struct
-        type t = Stable.V2.t list list
+        type t = Test.V2.t list list
         [@@deriving equal, compare, yojson, sexp, hash]
 
         let to_latest = Fn.id
