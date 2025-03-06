@@ -12,6 +12,7 @@ set -e # exit immediately on errors
 set -u # exit on not assigned variables
 set -o pipefail # exit on pipe failure
 
+
 CLEAR='\033[0m'
 RED='\033[0;31m'
 
