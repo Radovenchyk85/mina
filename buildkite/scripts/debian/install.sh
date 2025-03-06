@@ -40,7 +40,7 @@ else
       ;;
       mina-create-legacy-genesis)
         # Download locally static debians (for example mina-legacy-create-genesis )
-        source ./buildkite/scripts/cache/manager.sh read --root buildkite/shared/debs "$MINA_DEB_CODENAME/$i*" _build
+        source ./buildkite/scripts/cache/manager.sh read --root debs "$MINA_DEB_CODENAME/$i*" _build
       ;;
     esac
     source ./buildkite/scripts/cache/manager.sh debians/$MINA_DEB_CODENAME/${i}_* $LOCAL_DEB_FOLDER
